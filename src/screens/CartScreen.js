@@ -10,7 +10,7 @@ import {
     Button,
     Card,
 } from "react-bootstrap";
-import { addToCart } from "../actions/cartActions";
+import { addToCart, removeFromCart } from "../actions/cartActions";
 import Message from "../components/Message";
 
 const CartScreen = ({ match, location, history }) => {
@@ -27,7 +27,7 @@ const CartScreen = ({ match, location, history }) => {
         }
     }, [dispatch, id, qty]);
 
-    const removeFromCartHandler = (id) => console.log(id);
+    const removeFromCartHandler = (id) => dispatch(removeFromCart(id));
 
     const checkoutHandler = () => history.push("/login?redirect=shipping");
 
